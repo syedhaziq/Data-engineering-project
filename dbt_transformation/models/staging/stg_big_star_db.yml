@@ -1,0 +1,28 @@
+models:
+  - name: stg_customers
+    columns:
+      - name: customer_id
+        description: unique id that identifies a customer
+        tests:
+          - unique
+          - not_null
+  - name: stg_orders
+    columns:
+      - name: order_id
+        description: unique id that identifies an order
+        tests:
+          - unique
+          - not_null
+      - name: order_status
+        description: unique values that should be accepted
+        tests:
+          - accepted_values:
+              values:
+                - created
+                - shipped
+                - approved
+                - canceled
+                - invoiced
+                - delivered
+                - processing
+                - unavailable
